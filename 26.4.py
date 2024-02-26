@@ -5,4 +5,7 @@ h= str(random())
 k=int(y) +int(h)
 j=int(input(y"+"h "=" )))
 while j!=k:
-    if
+    if j==k :
+        print('верно')
+    else:
+        print('не верно')
