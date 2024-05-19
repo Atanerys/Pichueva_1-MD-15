@@ -39,16 +39,23 @@ def zad2():
 
 
 def zad3():
-    d = "D:\Pichueva_1-MD-15"
-    for f in os.listdir(d):
-        g = os.path.join(d, f)
-        if os.path.isfile(g) and f.endswith('.txt'):
-            l = open(g,'r').read()
-            o = l.read().splitlines()
-            for k in o :
-                i = open(g,'r')
-                i = i.readline()
-                print (i.split(","))
+    import csv
+    products = []
+    with open('k1.csv', newline='', encoding='utf-8') as csvfile:
+        r = csv.reader(csvfile)
+        next(r)
+        for row in r:
+            pname = row[0].strip()
+            q = int(row[1].strip())
+            price = float(row[2].strip())
+            products.append((pname, q, price))
+    sum = 0
+    print("Нужно купить:")
+    for product in products:
+        pname, q, price = product
+        sum += q * price
+        print(f"{pname} - {q} шт. за {price} руб.")
+    print(f"Итоговая сумма: {sum} руб.")
 #zad3()
 
 
