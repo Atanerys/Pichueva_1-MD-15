@@ -1,3 +1,5 @@
+import os
+
 def zad1():
     from PIL import Image
     f="tiger-isolated-on-white-background_257123-15084.jpg"
@@ -25,8 +27,8 @@ def zad2():
     mir.save('mirrorim.jpg')
 zad2()
 
-def zad3():
-import os
+#def zad3():
+
 from PIL import Image, ImageEnhance
 n = 'newpapka'
 os.makedirs(n)
@@ -44,12 +46,12 @@ print("Все изображения обработаны.")
 zad3()
 
 def zad4():
+    import os
     i = Image.open("1.jpg")
     draw = ImageDraw.Draw(i)
     font = ImageFont.truetype('arial.ttf', 36)
     textp = (i.size[0] - 200, i.size[1] - 50)
     wm=("что-то")
     draw.text(textp, wm, font=font, fill=(255, 255, 255, 128))
-
     i.save("1wm.jpg")
 zad4()
