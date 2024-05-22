@@ -1,0 +1,83 @@
+def zad1():
+    class Restaurant:
+        def __init__(self, restaurant_name, cuisine_type, initial_rating):
+            self.restaurant_name = restaurant_name
+            self.cuisine_type = cuisine_type
+            self.rating = initial_rating
+
+        def describe_restaurant(self):
+            print(f"Ресторан '{self.restaurant_name}' предлагает {self.cuisine_type} кухню.")
+            print(f"Рейтинг ресторана: {self.rating}")
+
+
+    class IceCreamStand(Restaurant):
+        def __init__(self, restaurant_name, initial_rating, flavors):
+            super().__init__(restaurant_name, "Кафе-мороженое", initial_rating)
+            self.flavors = flavors
+
+        def dflavors(self):
+            print("Список доступных сортов мороженого:")
+            for flavor in self.flavors:
+                print("- " + flavor)
+    ice_cream_stand = IceCreamStand("Мороженое ", 4.7, ["ваниль", "шоколад", "клубника", "печенье"])
+    ice_cream_stand.describe_restaurant()
+    ice_cream_stand.dflavors()
+zad1()
+def zad2():
+
+    class Restaurant:
+        def __init__(self, restaurant_name, cuisine_type, initial_rating):
+            self.restaurant_name = restaurant_name
+            self.cuisine_type = cuisine_type
+            self.rating = initial_rating
+
+        def describe_restaurant(self):
+            print(f"Ресторан '{self.restaurant_name}' предлагает {self.cuisine_type} кухню.")
+            print(f"Рейтинг ресторана: {self.rating}")
+    class IceCreamStand(Restaurant):
+        def __init__(self, restaurant_name, initial_rating, flavors, location, working_hours):
+            super().__init__(restaurant_name, "Кафе-мороженое", initial_rating)
+            self.flavors = flavors
+            self.location = location
+            self.working_hours = working_hours
+
+        def add_flavor(self, new_flavor):
+            self.flavors.append(new_flavor)
+            print(f"Сорт мороженого '{new_flavor}' успешно добавлен.")
+
+        def remove_flavor(self, flavor):
+            if flavor in self.flavors:
+                self.flavors.remove(flavor)
+                print(f"Сорт мороженого '{flavor}' успешно удален.")
+            else:
+                print(f"Сорта мороженого '{flavor}' нет в списке.")
+
+        def check_flavor(self, flavor):
+            if flavor in self.flavors:
+                print(f"Сорт мороженого '{flavor}' доступен в данном кафе.")
+            else:
+                print(f"Сорт мороженого '{flavor}' не доступен в данном кафе.")
+
+        def cupicecream(self):
+            print("мороженое в стаканчике.")
+
+        def softicecream(self):
+            print("мягкое мороженое.")
+
+        def sticecream(self):
+            print("мороженое на палочке.")
+
+    ice_cream_stand = IceCreamStand("Мороженое ", 4.7, ["ваниль", "шоколад", "клубника", "печенье"],
+                                    "Центральная площадь", "10:00 - 22:00")
+    p = input('какой сорт мороженого   хотел бы гость? ')
+    d = input('какой сорт мороженого вы бы хотели добавить? ')
+    l = input('какой сорт мороженого вы бы хотели убрать? ')
+    ice_cream_stand.add_flavor(d)
+
+    ice_cream_stand.remove_flavor(l)
+
+    ice_cream_stand.check_flavor(p)
+    ice_cream_stand.cupicecream()
+    ice_cream_stand.softicecream()
+    ice_cream_stand.sticecream()
+zad2()
